@@ -10,12 +10,14 @@
             >
             </v-text-field>
             <v-text-field
+                v-model="user.email"
                 label="E-mail"
                 hint="Insira seu e-mail"
             >
             </v-text-field>
             <v-text-field
                 label="Senha"
+                v-model="user.senha"
                 hint="Insira sua senha"
                 type="password"
             >
@@ -30,6 +32,7 @@
             <v-btn
                 v-if="loginForm"
                 color=""
+                @click="signIn"
             >
                 Log-in
                 <v-icon
@@ -61,8 +64,8 @@ import {mapGetters,mapActions} from 'vuex'
 
 export default {
     name: 'Auth',
-    computed:{...mapGetters(['loginForm'])},
-    methods:{...mapActions(['changeAuthForm'])}
+    computed:{...mapGetters(['loginForm','user'])},
+    methods:{...mapActions(['changeAuthForm','signIn'])}
 }
 </script>
 
