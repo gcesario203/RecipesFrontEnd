@@ -1,6 +1,6 @@
 <template>
     <div class="footer">
-        <h1>Sou o rodapé</h1>
+        <span>Feito com <v-icon style="color:red">mdi-heart</v-icon> pelo grupo <b>ponto e virgula</b></span>
     </div>
 </template>
 
@@ -14,5 +14,9 @@ export default {
 .footer{
     grid-area: footer;
     background: linear-gradient(to right,#F5CB5C,#ecbc38);
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 0 3rem 0 0;
 }
 </style>

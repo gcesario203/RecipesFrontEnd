@@ -43,6 +43,7 @@
             <v-text-field
                 v-if="!loginForm"
                 label="Confirme sua senha"
+                class="pr-2"
                 v-model="signUpUser.confirmSenha"
                 hint="Deve ser exatamente igual a senha digitada anteriormente"
                 type="password"
@@ -63,7 +64,6 @@
             <v-btn
                 v-if="!loginForm"
                 color=""
-                class="mt-1"
                 @click="signUp"
             >
                 Cadastrar

@@ -1,36 +1,22 @@
 <template>
     <div class="navBar" v-show="sideMenu">
         <div class="navBar__header">
-            <h1>Options</h1>
+            <h1>Opções</h1>
             <v-icon x-large>mdi-pizza</v-icon>
         </div>
         <div class="navBar__search">
             <SearchBar
                 :inputAction="changeInputSearchValue"
                 :action="searchRecipe"
-                icon="fas fa-search"
-                placeholder="Search a recipe"
-            >
-            </SearchBar>
-            <SearchBar
-                :inputAction="changeInputFilterAreaValue"
-                :action="filterByArea"
-                icon="fas fa-globe-americas"
-                placeholder="Filter by area"
-            >
-            </SearchBar>
-            <SearchBar
-                :inputAction="changeInputFilterIngredientValue"
-                :action="filterMainIngredient"
-                icon="fas fa-fish"
-                placeholder="Filter by ingredient"
+                icon=""
+                placeholder="Procurar receita"
             >
             </SearchBar>
             <SearchBar
                 :inputAction="changeInputFilterCategoryValue"
                 :action="filterByCategory"
-                icon="fas fa-list"
-                placeholder="Filer by category"
+                icon=""
+                placeholder="Procurar por categoria"
             >
             </SearchBar>
             <LuckDay></LuckDay>

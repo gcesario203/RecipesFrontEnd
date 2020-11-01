@@ -56,6 +56,7 @@ const mutations = {
         if(state.user.token){
             state.user = {}
             delete apiCommunication.defaults.headers.common['Authorization']
+            localStorage.removeItem("userData")
             showSucess("Volte sempre!")
         }
     },
