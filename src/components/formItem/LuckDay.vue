@@ -2,7 +2,7 @@
     <div class="luckDay">
         <div class="luckDay__content">
             <button @click="luckRecipe()">
-                <v-icon>mdi-highlight</v-icon>
+                <v-icon>mdi-lightbulb</v-icon>
                 <p>Estou com sorte!</p>
             </button>
         </div>
@@ -53,7 +53,7 @@ export default {
 .luckDay__content > button > p{
     font-family: 'Lato', sans-serif;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.8rem;
     text-align: center;
     width: 100%;
     margin-left: 2rem;

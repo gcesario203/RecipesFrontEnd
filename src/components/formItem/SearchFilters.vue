@@ -2,20 +2,20 @@
     <div class="navBar" v-show="sideMenu">
         <div class="navBar__header">
             <h1>Opções</h1>
-            <v-icon x-large>mdi-pizza</v-icon>
+            <v-icon x-large>mdi-account</v-icon>
         </div>
         <div class="navBar__search">
             <SearchBar
                 :inputAction="changeInputSearchValue"
                 :action="searchRecipe"
-                icon=""
+                icon="mdi-pizza"
                 placeholder="Procurar receita"
             >
             </SearchBar>
             <SearchBar
                 :inputAction="changeInputFilterCategoryValue"
                 :action="filterByCategory"
-                icon=""
+                icon="mdi-food"
                 placeholder="Procurar por categoria"
             >
             </SearchBar>
