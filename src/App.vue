@@ -2,24 +2,40 @@
   <div :class="{'app':sideMenu,'hide-menu':!sideMenu}">
     <Header></Header>
     <SideMenu></SideMenu>
-    <Content></Content>
+    <Loading v-if="validatingToken"></Loading>
+    <Content v-if="!validatingToken"></Content>
     <Footer></Footer>
   </div>
 </template>
 <script>
 import Header from './components/template/Header'
 import Content from './components/template/Content'
+import Loading from './components/template/Loading'
 import SideMenu from './components/template/SideMenu'
 import Footer from './components/template/Footer'
-import {mapGetters} from 'vuex'
+import {mapGetters,mapActions} from 'vuex'
 
 export default {
-  computed:{...mapGetters(['sideMenu'])},
+  computed:{...mapGetters(['sideMenu','user','validatingToken'])},
+  methods:{...mapActions(['validateToken'])},
   components:{
     Header,
     Content,
     SideMenu,
+    Loading,
     Footer
+  },
+  watch:{
+    loading:function(value){
+      this.validatingToken = value;
+    },
+    authUser:function(value){
+      this.user = value;
+      this.validateToken();
+    }
+  },
+  created(){
+    this.validateToken()
   }
 }
 </script>

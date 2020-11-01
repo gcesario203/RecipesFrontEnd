@@ -13,6 +13,9 @@
             <v-icon x-large>mdi-arrow-right</v-icon>
         </a>
         <router-link to='/'><h1>Cabeçalho</h1></router-link>
+        <a class="logouBtn" v-if="user.token" @click="signOut">
+            <span>X</span>
+        </a>
     </div>
 </template>
 
@@ -20,8 +23,8 @@
 import {mapActions,mapGetters} from 'vuex'
 export default {
     name: "Header",
-    computed: {...mapGetters(['sideMenu'])},
-    methods:{...mapActions(['toggleMenu'])}
+    computed: {...mapGetters(['sideMenu','user'])},
+    methods:{...mapActions(['toggleMenu','signOut'])}
 }
 </script>
 
@@ -44,6 +47,13 @@ export default {
 
 .header > a:hover{
     background: rgba(1, 1, 1, 0.15);
+}
+.logouBtn{
+    display: flex;
+    align-items: center;
+    position: sticky;
+    left: 100%;
+    height: 100%;
 }
 
 .header > a > h1{

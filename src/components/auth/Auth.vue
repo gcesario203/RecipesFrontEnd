@@ -5,6 +5,7 @@
             <h1 v-if="!loginForm" class="title-style">Cadastre-se</h1>
             <v-text-field
                 v-if="!loginForm"
+                v-model="signUpUser.username"
                 label="Nome"
                 hint="Insira seu nome"
             >
@@ -12,12 +13,29 @@
             <v-text-field
                 v-model="user.email"
                 label="E-mail"
+                v-if="loginForm"
+                hint="Insira seu e-mail"
+            >
+            </v-text-field>
+            <v-text-field
+                v-model="signUpUser.email"
+                v-if="!loginForm"
+                label="E-mail"
                 hint="Insira seu e-mail"
             >
             </v-text-field>
             <v-text-field
                 label="Senha"
                 v-model="user.senha"
+                v-if="loginForm"
+                hint="Insira sua senha"
+                type="password"
+            >
+            </v-text-field>
+            <v-text-field
+                label="Senha"
+                v-if="!loginForm"
+                v-model="signUpUser.senha"
                 hint="Insira sua senha"
                 type="password"
             >
@@ -25,6 +43,7 @@
             <v-text-field
                 v-if="!loginForm"
                 label="Confirme sua senha"
+                v-model="signUpUser.confirmSenha"
                 hint="Deve ser exatamente igual a senha digitada anteriormente"
                 type="password"
             >
@@ -44,6 +63,8 @@
             <v-btn
                 v-if="!loginForm"
                 color=""
+                class="mt-1"
+                @click="signUp"
             >
                 Cadastrar
                 <v-icon
@@ -64,8 +85,8 @@ import {mapGetters,mapActions} from 'vuex'
 
 export default {
     name: 'Auth',
-    computed:{...mapGetters(['loginForm','user'])},
-    methods:{...mapActions(['changeAuthForm','signIn'])}
+    computed:{...mapGetters(['loginForm','user','signUpUser'])},
+    methods:{...mapActions(['changeAuthForm','signIn','signUp'])}
 }
 </script>
 
