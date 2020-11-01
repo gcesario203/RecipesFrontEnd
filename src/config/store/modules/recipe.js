@@ -39,6 +39,16 @@ const mutations = {
                 router.push('/receitas')
             })
             .catch(showError)
+    },
+    getRecipeById(state,value){
+        apiCommunication.get(`receitas/${value}`)
+            .then(res =>{
+                state.selectedRecipe = {...res.data.data}
+                console.log(state.selectedRecipe)
+
+                router.push('/receita')
+            })
+            .catch(showError)
     }
 }
 const actions = {
@@ -53,6 +63,9 @@ const actions = {
                 page,
                 value
             })
+    },
+    getRecipeById(context,value){
+        context.commit('getRecipeById', value)
     }
 }
 

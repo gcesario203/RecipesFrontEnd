@@ -7,6 +7,7 @@
                 class="recipes__list"
                 v-for="recipe in allRecipes.data"
                 :key="recipe.id"
+                @click="getRecipeById(recipe.receita_id)"
             >
                 <h1>Nome: {{recipe.nome_receita}}</h1>
                 <h1>Local: {{recipe.local_origem}}</h1>
@@ -39,7 +40,7 @@ export default {
     name:'ListRecipes',
     computed:{...mapGetters(['allRecipes'])},
     methods:{
-        ...mapActions(['getRecipes']),
+        ...mapActions(['getRecipes','getRecipeById']),
         addPage(){
             if( Math.floor(this.allRecipes.total/this.allRecipes.limit) > this.page){
                 this.page++
