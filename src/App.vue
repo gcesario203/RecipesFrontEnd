@@ -17,7 +17,7 @@ import {mapGetters,mapActions} from 'vuex'
 
 export default {
   computed:{...mapGetters(['sideMenu','user','validatingToken'])},
-  methods:{...mapActions(['validateToken'])},
+  methods:{...mapActions(['validateToken','getRecipes','getCategories'])},
   components:{
     Header,
     Content,
@@ -35,7 +35,9 @@ export default {
     }
   },
   created(){
-    this.validateToken()
+    this.validateToken();
+    this.getCategories();
+    this.getRecipes();
   }
 }
 </script>

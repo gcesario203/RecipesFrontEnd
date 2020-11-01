@@ -1,6 +1,6 @@
 <template>
     <div class="content">
-        <h1>Sou o conteudo</h1>
+        <router-view></router-view>
     </div>
 </template>
 
@@ -17,5 +17,6 @@ export default {
     justify-content: center;
     align-items: center;
     background: #E8EDDF;
+    overflow-y: scroll;
 }
 </style>
